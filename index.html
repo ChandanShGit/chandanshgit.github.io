@@ -1,150 +1,341 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Chandan Sharma — Technical Lead & Mobile Architect</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0284c7',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #38bdf8;
-            --accent-hover: #0284c7;
+        body { font-family: 'Inter', sans-serif; }
+        code, pre { font-family: 'JetBrains Mono', monospace; }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .container {
-            background-color: var(--card-bg);
-            max-width: 600px;
-            width: 100%;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
-
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background-color: var(--accent);
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            font-weight: bold;
-            color: var(--bg-color);
-        }
-
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-        }
-
-        p.subtitle {
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 16px;
-        }
-
-        p.bio {
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-
-        .tag {
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .btn {
-            background-color: var(--accent);
-            color: var(--bg-color);
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: background-color 0.2s ease;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-hover);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--text-muted);
-        }
-
-        .btn-outline:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-color: var(--text-main);
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body>
+<body class="bg-brand-950 text-slate-300 antialiased selection:bg-sky-500 selection:text-white">
 
-    <div class="container">
-        <!-- Replace initial with image tag if you have one: <img src="avatar.jpg" class="profile-img"> -->
-        <div class="profile-img">👋</div>
-        
-        <h1>Your Name</h1>
-        <p class="subtitle">Software Developer / Tech Enthusiast</p>
-        
-        <p class="bio">
-            Welcome to my personal homepage hosted on GitHub Pages. I build web and mobile applications, experiment with modern tech stacks, and create open-source software.
-        </p>
-
-        <div class="tags">
-            <span class="tag">HTML/CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">GitHub Pages</span>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-card border-b border-slate-800/80 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-white tracking-tight flex items-center gap-2">
+                <span class="text-sky-400">&lt;/&gt;</span> Chandan Sharma
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="#about" class="hover:text-sky-400 transition-colors">About</a>
+                <a href="#expertise" class="hover:text-sky-400 transition-colors">Expertise</a>
+                <a href="#featured" class="hover:text-sky-400 transition-colors">Featured Engineering</a>
+                <a href="#fullstack" class="hover:text-sky-400 transition-colors">Full-Stack & Hybrid</a>
+                <a href="#clients" class="hover:text-sky-400 transition-colors">Clients & Impact</a>
+            </div>
+            <a href="mailto:your.email@example.com" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-sky-600 hover:bg-sky-500 rounded-lg transition-all shadow-lg shadow-sky-600/20">
+                Get In Touch
+            </a>
         </div>
+    </nav>
 
-        <div class="links">
-            <a href="https://github.com/your-username" target="_blank" class="btn">View GitHub Profile</a>
-            <a href="mailto:your-email@example.com" class="btn btn-outline">Get in Touch</a>
+    <!-- Hero Section -->
+    <section id="about" class="min-h-screen pt-32 pb-20 flex items-center justify-center relative overflow-hidden px-6">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(14,165,233,0.15),rgba(255,255,255,0))]"></div>
+        
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/80 border border-sky-500/30 text-sky-400 text-xs font-mono mb-6">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Available for Executive Tech Leadership & High-Impact Consulting
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">
+                Architecting <span class="gradient-text">Mobile-First</span> Systems & Modern Digital Products.
+            </h1>
+            
+            <p class="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed font-light">
+                <strong class="text-slate-200 font-semibold">Technical Lead Engineer</strong> with 7+ years of experience specializing in high-performance native <strong class="text-sky-400">Android (Kotlin)</strong>, <strong class="text-sky-400">Compose Multiplatform (CMP/KMP)</strong>, and <strong class="text-sky-400">iOS (Swift)</strong> ecosystems. Complementing mobile mastery with scalable <strong class="text-indigo-400">MERN Stack web apps</strong> and <strong class="text-indigo-400">Edge AI integrations</strong>.
+            </p>
+
+            <!-- Metrics Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto my-12">
+                <div class="p-4 rounded-xl glass-card">
+                    <div class="text-3xl font-extrabold text-white">7+</div>
+                    <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider font-mono">Years Experience</div>
+                </div>
+                <div class="p-4 rounded-xl glass-card">
+                    <div class="text-3xl font-extrabold text-sky-400">10+</div>
+                    <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider font-mono">Store Apps (Play/App)</div>
+                </div>
+                <div class="p-4 rounded-xl glass-card">
+                    <div class="text-3xl font-extrabold text-indigo-400">85%</div>
+                    <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider font-mono">Code Reuse (KMP/CMP)</div>
+                </div>
+                <div class="p-4 rounded-xl glass-card">
+                    <div class="text-3xl font-extrabold text-emerald-400">Enterprise</div>
+                    <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider font-mono">Airbus & Sopra Track Record</div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#featured" class="px-6 py-3 bg-white text-slate-900 font-semibold rounded-lg hover:bg-slate-200 transition-all text-sm">
+                    Explore Mobile Portfolio
+                </a>
+                <a href="#fullstack" class="px-6 py-3 glass-card text-white font-semibold rounded-lg hover:bg-slate-800 transition-all text-sm">
+                    View Full-Stack & Hybrid
+                </a>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Technical Expertise Matrix -->
+    <section id="expertise" class="py-20 border-t border-slate-900 bg-brand-950/50 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-xs uppercase font-mono tracking-widest text-sky-400 mb-2">Capabilities</h2>
+                <p class="text-3xl font-bold text-white tracking-tight">Technical Matrix & Stack</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Mobile Core (Primary) -->
+                <div class="p-8 rounded-2xl glass-card border-t-2 border-t-sky-500 relative">
+                    <div class="absolute -top-3 left-6 bg-sky-500 text-slate-950 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded">Primary Focus</div>
+                    <div class="w-12 h-12 rounded-lg bg-sky-500/10 flex items-center justify-center text-sky-400 text-xl mb-6">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Native & Multiplatform Mobile</h3>
+                    <p class="text-sm text-slate-400 mb-6">Architecting robust native & cross-platform applications with zero compromise on performance.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 bg-slate-800 text-sky-300 text-xs font-mono rounded">Kotlin</span>
+                        <span class="px-2.5 py-1 bg-slate-800 text-sky-300 text-xs font-mono rounded">Jetpack Compose</span>
+                        <span class="px-2.5 py-1 bg-slate-800 text-sky-300 text-xs font-mono rounded">KMP / CMP</span>
+                        <span class="px-2.5 py-1 bg-slate-800 text-sky-300 text-xs font-mono rounded">Swift (iOS)</span>
+                        <span class="px-2.5 py-1 bg-slate-800 text-sky-300 text-xs font-mono rounded">SwiftUI</span>
+                        <span class="px-2.5 py-1 bg-slate-800 text-sky-300 text-xs font-mono rounded">Coroutines & Flow</span>
+                        <span class="px-2.5 py-1 bg-slate-800 text-sky-300 text-xs font-mono rounded">Clean Architecture</span>
+                    </div>
+                </div>
+
+                <!-- Web Apps & Hybrid -->
+                <div class="p-8 rounded-2xl glass-card border-t-2 border-t-indigo-500">
+                    <div class="w-12 h-12 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400 text-xl mb-6">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Web & Hybrid Ecosystems</h3>
+                    <p class="text-sm text-slate-400 mb-6">End-to-end full-stack web solutions and multi-platform hybrid app architectures.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 bg-slate-800 text-indigo-300 text-xs font-mono rounded">MongoDB</span>
+                        <span class="px-2.5 py-1 bg-slate-800 text-indigo-300 text-xs font-mono rounded">Express.js</span>
+                        <span class="px-2.5 py-1 bg-slate-800 text-indigo-300 text-xs font-mono rounded">React.js</span>
+                        <span class="px-2.5 py-1 bg-slate-800 text-indigo-300 text-xs font-mono rounded">Node.js</span>
+                        <span class="px-2.5 py-1 bg-slate-800 text-indigo-300 text-xs font-mono rounded">Hybrid App Architecture</span>
+                        <span class="px-2.5 py-1 bg-slate-800 text-indigo-300 text-xs font-mono rounded">REST & WebSockets</span>
+                    </div>
+                </div>
+
+                <!-- Hardware, IoT & AI -->
+                <div class="p-8 rounded-2xl glass-card border-t-2 border-t-emerald-500">
+                    <div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-xl mb-6">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Hardware, GIS & Edge AI</h3>
+                    <p class="text-sm text-slate-400 mb-6">Interfacing hardware sensors, spatial GIS telemetry, and on-device machine intelligence.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 bg-slate-800 text-emerald-300 text-xs font-mono rounded">BLE & RSSI Proximity</span>
+                        <span class="px-2.5 py-1 bg-slate-800 text-emerald-300 text-xs font-mono rounded">Zebra Enterprise SDKs</span>
+                        <span class="px-2.5 py-1 bg-slate-800 text-emerald-300 text-xs font-mono rounded">ESRI ArcGIS Maps</span>
+                        <span class="px-2.5 py-1 bg-slate-800 text-emerald-300 text-xs font-mono rounded">Gemini Nano / ML Kit</span>
+                        <span class="px-2.5 py-1 bg-slate-800 text-emerald-300 text-xs font-mono rounded">TensorFlow Lite</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Mobile Engineering Showcase -->
+    <section id="featured" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16">
+                <h2 class="text-xs uppercase font-mono tracking-widest text-sky-400 mb-2">Showcase</h2>
+                <h3 class="text-3xl font-bold text-white tracking-tight">Mission-Critical Mobile Engineering</h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between hover:border-sky-500/50 transition-all">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-mono text-sky-400 uppercase tracking-widest">Enterprise Logistics & Airbus</span>
+                            <span class="px-2 py-1 bg-sky-950 text-sky-300 text-[10px] font-mono rounded border border-sky-800">Compose Multiplatform</span>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-3">MDW Enterprise Suite</h4>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            Architected a cross-platform logistics system achieving <strong>85% shared UI and business logic</strong> using Compose Multiplatform. Streamlined field operations by embedding offline-first BLE hardware tracking and spatial asset mapping.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 mb-6 font-mono">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> Reduced ongoing cross-platform development costs by 40%</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> Integrates ESRI GIS Asset Search boosting discovery by 70%</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> Custom BLE RSSI algorithm with 80% tag proximity accuracy</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex gap-2">
+                        <span class="text-[11px] font-mono text-slate-400">CMP • Kotlin • BLE • ESRI Maps • Offline-Sync</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between hover:border-sky-500/50 transition-all">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">Voice & Edge AI</span>
+                            <span class="px-2 py-1 bg-emerald-950 text-emerald-300 text-[10px] font-mono rounded border border-emerald-800">On-Device Processing</span>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-3">Airbus Voice-Driven Form Entry</h4>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            Engineered an offline-capable, voice-driven entry module tailored for field engineers operating in zero-connectivity maintenance bays.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 mb-6 font-mono">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Cut manual inspection form filling duration by 50%</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Zero cloud dependency during offline voice parsing</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Recipient of enterprise Innovation & Delight Awards</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex gap-2">
+                        <span class="text-[11px] font-mono text-slate-400">Android • Voice AI • Speech-to-Text • Jetpack Compose</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web Apps & Hybrid Engineering -->
+    <section id="fullstack" class="py-20 border-t border-slate-900 bg-brand-950/50 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16">
+                <h2 class="text-xs uppercase font-mono tracking-widest text-indigo-400 mb-2">Web & Hybrid Spectrum</h2>
+                <h3 class="text-3xl font-bold text-white tracking-tight">Full-Stack Web & Cross-Platform Systems</h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- MERN App Card -->
+                <div class="p-6 rounded-xl glass-card border border-slate-800 hover:border-indigo-500/50 transition-all">
+                    <div class="text-indigo-400 text-2xl mb-4"><i class="fa-brands fa-react"></i></div>
+                    <h4 class="text-lg font-bold text-white mb-2">Full-Stack MERN Web Portals</h4>
+                    <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+                        Designing responsive web dashboards powered by React, Node.js, Express, and MongoDB for seamless web-to-mobile backend orchestration.
+                    </p>
+                    <div class="text-[10px] font-mono text-indigo-300">React • Node.js • Express • MongoDB</div>
+                </div>
+
+                <!-- Real-Time Bidding -->
+                <div class="p-6 rounded-xl glass-card border border-slate-800 hover:border-indigo-500/50 transition-all">
+                    <div class="text-indigo-400 text-2xl mb-4"><i class="fa-solid fa-bolt"></i></div>
+                    <h4 class="text-lg font-bold text-white mb-2">Low-Latency Bidding Engine</h4>
+                    <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+                        Architected real-time WebSocket communication infrastructure for a high-traffic live bidding platform for US clients.
+                    </p>
+                    <div class="text-[10px] font-mono text-indigo-300">Socket.IO • WebSockets • Event-Driven Node</div>
+                </div>
+
+                <!-- Hybrid & Fintech Mobile -->
+                <div class="p-6 rounded-xl glass-card border border-slate-800 hover:border-indigo-500/50 transition-all">
+                    <div class="text-indigo-400 text-2xl mb-4"><i class="fa-solid fa-credit-card"></i></div>
+                    <h4 class="text-lg font-bold text-white mb-2">Biometric FinTech & KYC Apps</h4>
+                    <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+                        Engineered biometric hardware KYC validation and Razorpay payment top-up processing for FASTag recharge platforms.
+                    </p>
+                    <div class="text-[10px] font-mono text-indigo-300">Hardware Biometrics • Payment Gateways • Mobile SDKs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Roster & Experience -->
+    <section id="clients" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-xs uppercase font-mono tracking-widest text-sky-400 mb-2">Track Record</h2>
+                <h3 class="text-3xl font-bold text-white tracking-tight">Trusted By Industry Leaders</h3>
+            </div>
+
+            <!-- Client Logos Banner -->
+            <div class="flex flex-wrap items-center justify-center gap-10 md:gap-16 opacity-75 mb-16 grayscale hover:grayscale-0 transition-all">
+                <span class="text-2xl font-bold tracking-widest text-slate-300">AIRBUS</span>
+                <span class="text-2xl font-bold tracking-widest text-slate-300">SOPRA STERIA</span>
+                <span class="text-2xl font-bold tracking-widest text-slate-300">IRCTC</span>
+                <span class="text-2xl font-bold tracking-widest text-slate-300">ZEBRA</span>
+            </div>
+
+            <!-- Timeline Experience -->
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="relative pl-8 border-l-2 border-sky-500">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-sky-500"></div>
+                    <div class="text-xs font-mono text-sky-400 mb-1">Aug 2021 – Present</div>
+                    <h4 class="text-xl font-bold text-white">Technical Lead — Mobile & Cross-Platform</h4>
+                    <div class="text-sm text-slate-400 mb-2">Sopra Steria India</div>
+                    <p class="text-xs text-slate-400 leading-relaxed">Leading cross-functional engineering teams across mobile architectures, KMP migrations, enterprise deployments, and incident management for global tier-1 clients.</p>
+                </div>
+
+                <div class="relative pl-8 border-l-2 border-slate-800">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-800"></div>
+                    <div class="text-xs font-mono text-slate-400 mb-1">Mar 2021 – Aug 2021</div>
+                    <h4 class="text-xl font-bold text-white">Senior Software Engineer</h4>
+                    <div class="text-sm text-slate-400 mb-2">Appinventiv Technologies</div>
+                    <p class="text-xs text-slate-400 leading-relaxed">Delivered high-throughput real-time bidding platforms and governed code quality standards through automated testing pipelines.</p>
+                </div>
+
+                <div class="relative pl-8 border-l-2 border-slate-800">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-800"></div>
+                    <div class="text-xs font-mono text-slate-400 mb-1">Dec 2019 – Mar 2021</div>
+                    <h4 class="text-xl font-bold text-white">Senior Software Engineer</h4>
+                    <div class="text-sm text-slate-400 mb-2">NorthCorp Softwares</div>
+                    <p class="text-xs text-slate-400 leading-relaxed">Developed loss-prevention modules for IRCTC Rail Neer and delivered multi-tenant service booking applications independently.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact CTA -->
+    <footer class="py-16 border-t border-slate-900 bg-brand-950 text-center px-6">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold text-white mb-4">Let's build something exceptional.</h3>
+            <p class="text-slate-400 text-sm mb-8 max-w-xl mx-auto">
+                Whether you need technical leadership for mobile platforms, KMP architectural guidance, or full-stack web solutions.
+            </p>
+            <div class="flex justify-center gap-6 text-2xl text-slate-400 mb-10">
+                <a href="https://github.com" class="hover:text-sky-400 transition-colors"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com" class="hover:text-sky-400 transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:your.email@example.com" class="hover:text-sky-400 transition-colors"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <div class="text-xs text-slate-400 font-mono">
+                © Chandan Sharma. Designed for GitHub Pages.
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
